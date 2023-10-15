@@ -1,0 +1,16 @@
+html,
+body {
+  max-width: 1080px;
+  margin: auto;
+  font-family: 'NanumSquare', 'NanumSquareRound', 'sans-serif';
+  height: 100%;
+  background-color: rgb(17, 17, 17);
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+div {
+  box-sizing: border-box;
+}

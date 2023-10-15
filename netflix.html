@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <title>NETFLIX</title>
+</head>
+
+<body>
+    <div class="banner_container">
+        <div style="padding: 8px; height: 40px">
+            <div style="color: red; font-weight: bold; float: left">NETFLIX</div>
+            <div class="profile"><div>Y</div></div>
+        </div>
+        <div class="banner_content">
+            <div>
+                <div style="font-size: 24px; font-weight: bold; padding: 8px">공 작</div>
+                <div>
+                    <button class="button">Play</button>
+                    <button class="button">My List</button>
+                </div>
+                <div style="font-size: 12px; padding: 8px">냉전의 1990년대. 남북을 뒤흔든 그들의 선택.</div>
+            </div>
+        </div>
+    </div>
+    <div class="lists">
+        <div style="display: flex; align-items: center; height: 40px">
+            <div style="padding-left: 8px; color: white; font-weight: bold">NETFLIX ORIGINALS</div>
+        </div>
+        <div id="original_list" class="list"></div>
+    </div>
+    <div class="lists">
+        <div style="display: flex; align-items: center; height: 40px">
+            <div style="padding-left: 8px; color: white; font-weight: bold">TRENDING NOW</div>
+        </div>
+        <div id="trending_list" class="list"></div>
+    </div>
+    </div>
+
+    <script>
+        function Lists() {
+            for (let i = 0; i < 10; i++) {
+                const temp = document.createElement('div');
+                temp.innerHTML = `<div class="original_list" style="background-image: url(/img/${'original' + i}.jpg)"></div>`;
+                document.querySelector('#original_list').append(temp);
+            }
+            for (let i = 0; i < 10; i++) {
+                const temp = document.createElement('div');
+                temp.innerHTML = `<div class="trending_list" style="background-image: url(/img/${'trending' + i}.jpg)"></div>`;
+                document.querySelector('#trending_list').append(temp);
+            }
+        }
+
+        window.onload = Lists();
+
+
+        let slider1 = document.querySelector('#original_list');
+        let slider2 = document.querySelector('#trending_list');
+        let isDown1 = false;
+        let isDown2 = false;
+        let startX1;
+        let startX2;
+        let scrollLeft1;
+        let scrollLeft2;
+
+
+            slider1.addEventListener('mousedown', e => {
+                isDown1 = true;
+                startX1 = e.pageX - slider1.offsetLeft;
+                scrollLeft1 = slider1.scrollLeft;
+            });
+            slider1.addEventListener('mouseleave', () => {
+                isDown1 = false;
+            });
+
+            slider1.addEventListener('mouseup', () => {
+                isDown1 = false;
+            });
+
+            slider1.addEventListener('mousemove', e => {
+                if (!isDown1) return;
+                e.preventDefault();
+                const x = e.pageX - slider1.offsetLeft;
+                const walk = x - startX1;
+                slider1.scrollLeft = scrollLeft1 - walk;
+            });
+
+            slider2.addEventListener('mousedown', e => {
+                isDown2 = true;
+                startX2 = e.pageX - slider2.offsetLeft;
+                scrollLeft2 = slider2.scrollLeft;
+            });
+            slider2.addEventListener('mouseleave', () => {
+                isDown2 = false;
+            });
+
+            slider2.addEventListener('mouseup', () => {
+                isDown2 = false;
+            });
+
+            slider2.addEventListener('mousemove', e => {
+                if (!isDown2) return;
+                e.preventDefault();
+                const x = e.pageX - slider2.offsetLeft;
+                const walk = x - startX2;
+                slider2.scrollLeft = scrollLeft2 - walk;
+            });
+
+
+    </script>
+</body>
+
+</html>
