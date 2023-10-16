@@ -42,6 +42,16 @@
   background-size: cover;
 }
 
+.original_list:hover {
+  width: 200px;
+  height: 260px;
+}
+
+.trending_list:hover {
+  width: 200px;
+  height: 260px;
+}
+
 #original_list::-webkit-scrollbar {
   display: none;
 }
