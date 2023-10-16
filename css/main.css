@@ -43,13 +43,11 @@
 }
 
 .original_list:hover {
-  width: 200px;
-  height: 260px;
+  transform: scale(1.1);
 }
 
 .trending_list:hover {
-  width: 200px;
-  height: 260px;
+  transform: scale(1.1);
 }
 
 #original_list::-webkit-scrollbar {
