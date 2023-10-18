@@ -44,12 +44,12 @@
         function Lists() {
             for (let i = 0; i < 10; i++) {
                 const temp = document.createElement('div');
-                temp.innerHTML = `<div class="original_list" style="background-image: url(/img/${'original' + i}.jpg)"></div>`;
+                temp.innerHTML = `<div class="original_list" style="background-image: url(./img/${'original' + i}.jpg)"></div>`;
                 document.querySelector('#original_list').append(temp);
             }
             for (let i = 0; i < 10; i++) {
                 const temp = document.createElement('div');
-                temp.innerHTML = `<div class="trending_list" style="background-image: url(/img/${'trending' + i}.jpg)"></div>`;
+                temp.innerHTML = `<div class="trending_list" style="background-image: url(./img/${'trending' + i}.jpg)"></div>`;
                 document.querySelector('#trending_list').append(temp);
             }
         }
